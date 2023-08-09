@@ -47,53 +47,6 @@ body {
     position: relative;
 }
 
-.socials-container {
-    z-index: 1;
-    display: flex;
-    position: absolute;
-    right: 15%;
-    top: 5rem;
-}
-
-.socials-container a img {
-    height: 3rem;
-    transform: scale(1);
-    margin: 1rem 2rem 1rem 0;
-    transition: transform 0.2s;
-}
-
-.socials-container a:hover img {
-    height: 3rem;
-    transform: scale(1.2);
-    margin: 1rem 2rem 1rem 0;
-    transition: transform 0.2s;
-}
-
-.shape-wrapper {
-    position: relative;
-}
-
-.custom-shape-divider-top-1687095815 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
-
-.custom-shape-divider-top-1687095815 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 50px;
-}
-
-.custom-shape-divider-top-1687095815 .shape-fill {
-    fill: #000000;
-}
-
-
 .block {
     padding: 0 1rem;
     max-width: 60rem;
