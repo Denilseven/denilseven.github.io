@@ -36,8 +36,16 @@ p {
     line-height: 1.4;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     background-color: var(--bg1);
+
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .hero {
@@ -55,6 +63,7 @@ body {
     flex-direction: row;
     gap: 2rem;
     align-items: center;
+    margin-top: auto;
 }
 
 .footer > *:first-child {
@@ -74,7 +83,7 @@ body {
 .block {
     padding: 0 1rem;
     max-width: 60rem;
-    margin: 4rem auto 6rem auto;
+    margin: 4rem auto;
     color: var(--text2);
 }
 
