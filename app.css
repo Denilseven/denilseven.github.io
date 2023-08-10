@@ -165,9 +165,10 @@ body {
     color: var(--text1);
 }
 
-@media (max-width: 67em) {
+
+@media (max-width: 70rem) {
     h2 {
-        transform: translateX(0px) rotate(-3deg);
+        transform: translateX(0px);
     }
 
     .socials-container {
@@ -176,9 +177,17 @@ body {
         position: static;
         margin-top: 1rem;
     }
+
+    .footer {
+        flex-direction: column;
+    }
+
+    .footer > .bullet-point {
+        display: none;
+    }
 }
 
-@media (max-width: 50em) {
+@media (max-width: 50rem) {
     .card {
         margin: 0.5rem;
     }
