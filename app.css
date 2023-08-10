@@ -86,7 +86,7 @@ body {
 .block {
     padding: 0 1rem;
     max-width: 60rem;
-    margin: 4rem auto;
+    margin: 3rem auto;
     color: var(--text2);
 }
 
@@ -170,6 +170,10 @@ body {
 
 
 @media (max-width: 70rem) {
+    .block > p {
+        font-size: 1rem;
+    }
+
     h2 {
         transform: translateX(0px);
     }
