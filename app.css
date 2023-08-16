@@ -64,15 +64,20 @@ body {
     position: relative;
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    justify-content: flex-start;
+    gap: 1.2rem;
     align-items: center;
     margin-top: auto;
 }
 
-.footer > *:first-child {
+.footer > .link {
     padding: 0.5rem 1rem;
     border: rgb(87, 87, 87) 1px solid;
     border-radius: 10rem;
+}
+
+.footer > *:last-child {
+    margin-left: auto;
 }
 
 .footer > a {
@@ -189,8 +194,9 @@ body {
         flex-direction: column;
     }
 
-    .footer > .bullet-point {
-        display: none;
+    .footer > *:last-child {
+        margin: auto;
+        margin-top: 2rem;
     }
 }
 
