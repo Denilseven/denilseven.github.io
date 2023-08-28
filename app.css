@@ -3,7 +3,7 @@
 
 :root {
     --bg1: #ffe762;
-    --bg2: #000;
+    --bg2: #050505;
     --text1: #FFFFF0;
     --text2: #807430;
     --text3: #8332B3;
@@ -18,7 +18,7 @@
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 6rem;
     font-family: 'Signika', sans-serif;
 }
 
@@ -54,7 +54,25 @@ body {
 .hero {
     background-color: var(--bg2);
     color: var(--text1);
-    padding: 5rem 15%;
+    box-sizing: border-box;
+    height: 50vh;
+    padding: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 25%;
+}
+.hero > :nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.hero > .quote {
+    border-left: var(--bg1) 5px solid;
+    padding: 1rem 2rem;
+    height: fit-content;
+    max-width: 24rem;
 }
 
 .footer {
@@ -175,6 +193,14 @@ body {
 
 
 @media (max-width: 70rem) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    .hero {
+        flex-direction: column;
+    }
+
     .block > p {
         font-size: 1rem;
     }
@@ -201,6 +227,10 @@ body {
 }
 
 @media (max-width: 50rem) {
+    .hero {
+        height: 100vh;
+    }
+
     .card {
         margin: 0.5rem;
     }
