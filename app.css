@@ -197,8 +197,8 @@ body {
         font-size: 4rem;
     }
 
-    .hero {
-        flex-direction: column;
+    .hero > .quote {
+        display: none;
     }
 
     .block > p {
@@ -227,10 +227,6 @@ body {
 }
 
 @media (max-width: 50rem) {
-    .hero {
-        height: 100vh;
-    }
-
     .card {
         margin: 0.5rem;
     }
