@@ -125,7 +125,7 @@ body {
 .cards-container {
     display: grid;
 
-    height: 400px;
+    aspect-ratio: 1 / 0.5;
     width: 100%;
 
     grid-template-rows: 25% 25% 25% 25%;
@@ -214,17 +214,9 @@ body {
         transform: translateX(0px);
     }
 
-    .socials-container {
-        z-index: 1;
-        display: flex;
-        position: static;
-        margin-top: 1rem;
-    }
-
     .footer {
         flex-direction: column;
     }
-
     .footer > *:last-child {
         margin: auto;
         margin-top: 2rem;
@@ -232,6 +224,10 @@ body {
 }
 
 @media (max-width: 50rem) {
+    .cards-container {
+        aspect-ratio: 1 / 1;
+    }
+
     .card {
         margin: 0.5rem;
     }
