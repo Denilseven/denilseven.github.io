@@ -8,6 +8,7 @@
     --secondary-text: #FFFFF0;
     --complementary: #8332B3;
     --link-hover: #129bbd;
+    --mail-hover: #de7207;
     --details: rgb(87, 87, 87);
 }
 
@@ -109,13 +110,23 @@ footer a {
     margin: 1rem 0.6rem;
     border: var(--details) 1px solid;
     border-radius: 10rem;
-    transition: background-color 250ms ;
+    transition: background-color 500ms;
 }
 
 footer a:hover {
     background-color: var(--link-hover);
     border: var(--link-hover) 1px solid;
-    transition: background-color 250ms ;
+    transition: background-color 250ms;
+}
+
+footer #send-mail {
+    border-radius: 3px;
+}
+
+footer #send-mail:hover {
+    background-color: var(--mail-hover);
+    border: var(--mail-hover) 1px solid;
+    transition: background-color 500ms;
 }
 
 @media (max-width: 40rem) {
