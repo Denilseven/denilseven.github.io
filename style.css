@@ -7,8 +7,8 @@
     --main-text: #807430;
     --secondary-text: #FFFFF0;
     --complementary: #8332B3;
-    --link-hover: #129bbd;
-    --mail-hover: #de7207;
+    --link: #129bbd;
+    --link-complementary: #de7207;
     --details: rgb(87, 87, 87);
 }
 
@@ -60,7 +60,7 @@ section {
     width: 50vw;
 }
 
-section h1 {
+section > h1 {
     margin-top: 3rem;
     margin-bottom: 2rem;
     font-family: 'Signika', sans-serif;
@@ -76,13 +76,65 @@ section h1 {
 section p {
     color: var(--main-text);
     font-size: 1.2rem;
-    margin-bottom: 1.4rem;
+    margin-top: 1.2rem;
     line-height: 1.7rem;
+}
+
+section .card {
+    border: 1px solid var(--main-text);
+    box-shadow: -0.5rem 0.5rem 0 var(--main-text);
+    border-radius: 3px;
+    padding: 1rem 17rem 1rem 1rem;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    position: relative;
+    transform: translateX(-2rem);
+}
+
+section .card img {
+    border: 1px solid var(--main-text);
+    box-shadow: 0.5rem 0.5rem 0 var(--main-text);
+    border-radius: 3px;
+    position: absolute;
+    width: 20rem;
+    right: 0;
+    top: 0;
+    transform: translate(20%, -10%);
+}
+
+section .card h1 {
+    color: var(--main-text);
+    font-size: 2.5rem;
+    font-family: 'Signika', sans-serif;
+    margin-bottom: 1rem;
+}
+
+section .card h2 {
+    color: var(--main-background);
+    background-color: var(--main-text);
+    font-size: 1rem;
+    padding: 0.2rem 0.3rem;
+    border-radius: 3px;
+    width: fit-content;
+    font-weight: lighter;
+}
+
+section a {
+    font-weight: bold;
+    color: var(--link);
+    cursor: pointer;
+}
+
+section a:hover,
+section a:focus {
+    color: var(--link-complementary);
 }
 
 footer {
     font-size: 1.1rem;
-    margin-top: 4rem;
+    margin-top: 1rem;
     padding: 1.4rem 0;
     background-color: var(--secondary-background);
     color: var(--secondary-text);
@@ -113,9 +165,10 @@ footer a {
     transition: background-color 500ms;
 }
 
-footer a:hover {
-    background-color: var(--link-hover);
-    border: var(--link-hover) 1px solid;
+footer a:hover,
+footer a:focus {
+    background-color: var(--link);
+    border: var(--link) 1px solid;
     transition: background-color 250ms;
 }
 
@@ -123,9 +176,10 @@ footer #send-mail {
     border-radius: 3px;
 }
 
-footer #send-mail:hover {
-    background-color: var(--mail-hover);
-    border: var(--mail-hover) 1px solid;
+footer #send-mail:hover,
+footer #send-mail:focus {
+    background-color: var(--link-complementary);
+    border: var(--link-complementary) 1px solid;
     transition: background-color 500ms;
 }
 
@@ -141,6 +195,24 @@ footer #send-mail:hover {
     section p {
         font-size: 1rem;
         line-height: 1.5rem;
+    }
+}
+
+@media (max-width: 50rem) {
+    section .card {
+        padding: 1rem;
+        flex-direction: column-reverse;
+        margin-bottom: 2rem;
+        transform: none;
+        box-shadow: 0.5rem 0.5rem 0 var(--main-text);
+    }
+
+    section .card img {
+        width: 60%;
+        position: relative;
+        object-fit: cover;
+        transform: none;
+        box-shadow: none;
     }
 }
 
