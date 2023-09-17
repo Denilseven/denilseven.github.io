@@ -92,7 +92,7 @@ section .card {
     transform: translateX(-2rem);
 }
 
-section .card img {
+section .card-banner {
     border: 1px solid var(--main-text);
     box-shadow: 0.5rem 0.5rem 0 var(--main-text);
     border-radius: 3px;
@@ -101,6 +101,20 @@ section .card img {
     right: 0;
     top: 0;
     transform: translate(20%, -10%);
+}
+
+section .card .play-link {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+section .card .platform {
+    height: 1.7em;
+    display:inline-block;
+    filter: invert(44%) sepia(90%) saturate(437%) hue-rotate(144deg) brightness(97%) contrast(95%);
 }
 
 section .card h1 {
