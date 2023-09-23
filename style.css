@@ -27,16 +27,19 @@ header {
     color: var(--secondary-text);
     background-color: var(--secondary-background);
     height: fit-content;
-    padding: 6rem 0 7rem 0;
+    padding: 4rem 0 3rem 0;
     margin-bottom: 1rem;
 }
 
 header .wrapper {
-    z-index: 5;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    margin: 0 7.5%;
+    align-items: left;
+}
+
+header nav {
+    margin-top: 2rem;
 }
 
 header h1 {
@@ -159,46 +162,52 @@ footer {
 }
 
 footer .wrapper {
-    margin: 0 15%;
+    margin: 0 7.5%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-footer nav {
+.rounded-links {
+    width: fit-content;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-footer a {
+.rounded-links a {
     color: var(--secondary-text);
     text-decoration: none;
     padding: 0.8rem 1rem;
-    margin: 1rem 0.6rem;
+    margin: 1rem 0.5rem;
     border: var(--details) 1px solid;
-    border-radius: 10rem;
+    border-radius: 100rem;
     transition: background-color 500ms;
+    height: fit-content;
 }
 
-footer a:hover,
-footer a:focus {
+.rounded-links a:hover,
+.rounded-links a:focus {
     background-color: var(--link);
     border: var(--link) 1px solid;
     transition: background-color 250ms;
 }
 
-footer #send-mail {
+.rounded-links #link-alt {
     border-radius: 3px;
 }
 
-footer #send-mail:hover,
-footer #send-mail:focus {
+.rounded-links #link-alt:hover,
+.rounded-links #link-alt:focus {
     background-color: var(--link-complementary);
     border: var(--link-complementary) 1px solid;
     transition: background-color 500ms;
+}
+
+.rounded-links :nth-child(1) {
+    margin-left: 0;
 }
 
 @media (max-width: 40rem) {
