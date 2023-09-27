@@ -69,6 +69,10 @@ section {
     margin: 2rem 0 2rem 0;
 }
 
+#showcase {
+    max-width: 85vw !important;
+}
+
 section > h1 {
     margin-bottom: 2rem;
     font-family: 'Signika', sans-serif;
