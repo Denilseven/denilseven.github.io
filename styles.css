@@ -92,9 +92,9 @@ footer {
 }
 
 .item:nth-child(odd) > .banner-wrapper > .banner-scroll {
-    animation: 120s slide-left linear infinite;
+    animation: 100s slide-left linear infinite;
 } .item:nth-child(even) > .banner-wrapper > .banner-scroll {
-    animation: 120s slide-right linear infinite;
+    animation: 100s slide-right linear infinite;
 }
 
 .banner-wrapper {
