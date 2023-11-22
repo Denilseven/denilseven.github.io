@@ -157,6 +157,57 @@ footer {
     100% { transform: translateX(0); }
 }
 
+/* CARD ELEMENT */
+
+.card-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: min(
+        calc(var(--normal-width) * 0.25),
+        calc(var(--max-width) * 0.5)
+    );
+    width: calc(var(--normal-width) * 0.5);
+    max-width: var(--max-width);
+    aspect-ratio: 1 / 0.6;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card1 {
+    width: calc(var(--normal-width) * 0.5);
+    max-width: var(--max-width);
+    aspect-ratio: 1 / 0.6;
+    border: var(--border-thickness) solid var(--text-color);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    position: absolute;
+    top: 0;
+}
+
+.card2 {
+    width: calc(var(--normal-width) * 0.36);
+    max-width: calc(var(--max-width) * 0.72);
+    aspect-ratio: 1 / 1;
+    border: var(--border-thickness) solid var(--text-color);
+    border-radius: var(--border-radius);
+    transform: rotate(45deg);
+    position: absolute;
+    top: max(
+        calc(var(--normal-width) * -0.18),
+        calc(var(--max-width) * -0.36)
+    );
+}
+
+#send-mail {
+    font-size: 2rem;
+    height: 4rem;
+    position: absolute;
+    top: -2rem;
+    display: flex;
+    align-items: center;
+}
+
 /* LINKS */
 
 a:hover {
@@ -164,6 +215,9 @@ a:hover {
 }
 
 .link-button {
+    z-index: 10;
+    height: fit-content;
+    background-color: var(--body-color);
     color: var(--text-color);
     text-decoration: none;
     border: var(--border-thickness) solid var(--text-color);
