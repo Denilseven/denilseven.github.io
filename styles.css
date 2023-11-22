@@ -42,7 +42,7 @@ p {
 
 header p {
     color: var(--alt-text-color);
-    font-size: 2.7rem;
+    font-size: 2.5rem;
     line-height: 1.2em;
     margin: 1em 0;
 }
@@ -57,6 +57,12 @@ header b {
     color: var(--body-color);
     padding: 0.5rem;
     font-size: 1rem;
+}
+
+.big {
+    font-weight: bolder;
+    font-size: 2.2em;
+    line-height: 1em;
 }
 
 /* STRUCTURE */
