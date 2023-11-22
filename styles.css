@@ -10,6 +10,7 @@
     --max-width: 85vw;
     --border-radius: 0.5rem;
     --border-thickness: 2px;
+    --side-padding: 5%;
 }
 
 * {
@@ -72,7 +73,7 @@ body {
 header {
     width: 100%;
     height: 90svh;
-    padding: 0 5%;
+    padding: 0 var(--side-padding);
     color: var(--body-color);
     background-color: var(--text-color);
     display: flex;
@@ -89,6 +90,7 @@ main {
 
 footer {
     margin-top: auto;
+    padding: 0 var(--side-padding);
     padding-bottom: 2rem;
     display: flex;
     flex-direction: column;
