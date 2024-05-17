@@ -19,6 +19,24 @@
     box-sizing: border-box;
 }
 
+*:focus {
+    outline: 0.5rem solid var(--link-color);
+    transition: outline 0;
+    animation-name: outline;
+    animation-duration: 200ms;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes outline {
+    from {
+        outline-offset: 0.25rem;
+    }
+    to {
+        outline-offset: 0.5rem;
+    }
+}
+
 /* #region FONTS */
 
 h2 {
@@ -139,7 +157,8 @@ header > .shortcuts a {
     margin-left: 1rem;
 }
 
-header > .shortcuts a:hover {
+header > .shortcuts a:hover,
+header > .shortcuts a:focus {
     color: var(--text-color);
     background-color: var(--body-color);
     box-shadow: var(--text-color) inset 0 0 0 var(--border-thickness);
@@ -150,15 +169,18 @@ header .icon-link {
     justify-self: flex-start;
     margin-left: 1rem;
     display: flex;
+    border-radius: var(--border-radius);
 }
 
 header .icon-link img {
     height: 3rem;
     margin: auto;
     transition: 400ms;
+    transition-property: translate, scale;
 }
 
-header .icon-link:hover img {
+header .icon-link:hover img,
+header .icon-link:focus img {
     translate: 0 -1rem;
     scale: 1.2;
 }
@@ -186,9 +208,11 @@ header .icon-link:hover img {
     background-size: 100%;
     background-repeat: no-repeat;
     transition: 500ms;
+    transition-property: background-size;
 }
 
-.game-cell:hover {
+.game-cell:hover,
+.game-cell:focus {
     background-size: 80%, 120%;
 }
 
@@ -211,9 +235,11 @@ header .icon-link:hover img {
 
     opacity: 0;
     transition: 400ms;
+    transition-property: top, opacity;
 }
 
-.game-cell:hover > .content {
+.game-cell:hover > .content,
+.game-cell:focus > .content {
     top: 0;
     opacity: 1;
 }
@@ -279,7 +305,8 @@ a:hover {
     line-height: 4rem;
 }
 
-.link-button:hover {
+.link-button:hover,
+.link-button:focus {
     color: var(--link-color);
     border: var(--border-thickness) solid var(--link-color);
     box-shadow: 0 0.25rem var(--link-color);
