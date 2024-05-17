@@ -1,55 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Signika:wght@600&display=swap');
-
 :root {
     --text-color: #171717;
     --alt-text-color: #e7e7e7;
     --body-color: #ffe762;
-    --link-color: #c60dff;
+    --link-color: rgb(0, 60, 255);
     --normal-width: 50rem;
     --max-width: 85vw;
     --border-radius: 0.5rem;
     --border-thickness: 2px;
     --side-padding: 5%;
+    --emphasis-color-1: rgb(10, 111, 10);
+    --emphasis-color-2: rgb(20, 162, 20);
 }
 
 * {
     margin: 0;
     padding: 0;
-    font-family: ABeeZee, sans-serif;
+    font-family: sans-serif;
     box-sizing: border-box;
 }
 
-/* FONTS */
+/* #region FONTS */
 
 h2 {
     font-size: 2.2rem;
-    font-family: 'Signika', sans-serif;
     margin: 1em 0;
+}
+
+h2::after {
+    content: '';
+    width: 100px;
+    height: 100px;
+    background-color: blue;
 }
 
 h3 {
     font-size: 1.8rem;
-    font-family: 'Signika', sans-serif;
     margin: 0.5em 0;
 }
 
 p {
-    font-size: 1.2rem;
-    line-height: 1.6rem;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
     margin: 1em 0;
 }
 
-header p {
-    color: var(--alt-text-color);
-    font-size: 2.5rem;
-    line-height: 1.2em;
-    margin: 1em 0;
-}
-
-header b {
-    color: var(--body-color);
-}
 
 .code {
     font-family: monospace;
@@ -65,7 +59,21 @@ header b {
     line-height: 1em;
 }
 
-/* STRUCTURE */
+.jam {
+    color: var(--body-color);
+    font-size: 0.8em;
+}
+
+.marker {
+    background: linear-gradient(25deg, var(--emphasis-color-1), var(--emphasis-color-2));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* #endregion */
+
+/* #region STRUCTURE */
 
 body {
     color: var(--text-color);
@@ -76,22 +84,9 @@ body {
     align-items: center;
 }
 
-header {
-    width: 100%;
-    height: 90svh;
-    padding: 0 var(--side-padding);
-    color: var(--body-color);
-    background-color: var(--text-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
 main {
-    width: var(--normal-width);
-    max-width: var(--max-width);
-    margin-bottom: 7rem;
+    width: 100%;
+    padding: 0 var(--side-padding);
 }
 
 footer {
@@ -104,126 +99,175 @@ footer {
     justify-content: center;
 }
 
-/* SHOWCASE CLASSES */
-
-.items-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
+hr {
+    border: calc(var(--border-thickness) * 0.5) solid var(--text-color);
 }
 
-.item {
-    display: inline-block;
-    border: var(--border-thickness) solid var(--text-color);
-    border-radius: var(--border-radius);
-    padding: 0 1rem;
-    position: relative;
-    overflow: hidden;
-}
+/* #endregion */
 
-.item:nth-child(odd) > .banner-wrapper > .banner-scroll {
-    animation: 100s slide-left linear infinite;
-} .item:nth-child(even) > .banner-wrapper > .banner-scroll {
-    animation: 100s slide-right linear infinite;
-}
+/* #region HEADER */
 
-.banner-wrapper {
-    width: calc(100% + 2rem);
-    height: 10rem;
-    top: 0;
-    left: -1rem;
-    position: relative;
-    white-space: nowrap;
-    word-spacing: -0.3rem;
-}
-
-.banner-scroll {
-    height: inherit;
-    display: inline-block;
-}
-
-.banner-scroll > img {
-    height: inherit;
-    object-fit: cover;
-}
-
-.banner-gradient {
+header {
     width: 100%;
-    height: 10%;
-    position: absolute;
-    bottom: 0;
-    background: linear-gradient(transparent, var(--body-color));
-}
-
-@keyframes slide-left {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-}
-
-@keyframes slide-right {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(0); }
-}
-
-/* CARD ELEMENT */
-
-.card-wrapper {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: min(
-        calc(var(--normal-width) * 0.25),
-        calc(var(--max-width) * 0.5)
-    );
-    width: calc(var(--normal-width) * 0.5);
-    max-width: var(--max-width);
-    aspect-ratio: 1 / 0.6;
-    position: relative;
+    padding: 0 var(--side-padding);
+    margin: 2rem 0;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
-.card1 {
-    width: calc(var(--normal-width) * 0.5);
-    max-width: var(--max-width);
-    aspect-ratio: 1 / 0.6;
-    border: var(--border-thickness) solid var(--text-color);
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
-    position: absolute;
-    top: 0;
+header .greeting {
+    font-size: 3rem;
+    line-height: 1em;
 }
 
-.card2 {
-    width: calc(var(--normal-width) * 0.36);
-    max-width: calc(var(--max-width) * 0.72);
-    aspect-ratio: 1 / 1;
+header .links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: auto;
+}
+
+header > .shortcuts a {
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: var(--body-color);
+    background-color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    margin-left: 1rem;
+}
+
+header > .shortcuts a:hover {
+    color: var(--text-color);
+    background-color: var(--body-color);
+    box-shadow: var(--text-color) inset 0 0 0 var(--border-thickness);
+}
+
+header .icon-link {
+    margin-right: auto;
+    justify-self: flex-start;
+    margin-left: 1rem;
+    display: flex;
+}
+
+header .icon-link img {
+    height: 3rem;
+    margin: auto;
+    transition: 400ms;
+}
+
+header .icon-link:hover img {
+    translate: 0 -1rem;
+    scale: 1.2;
+}
+
+/* #endregion */
+
+/* #region GAMES GRID */
+
+#games {
+    position: relative;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.game-cell {
     border: var(--border-thickness) solid var(--text-color);
     border-radius: var(--border-radius);
-    transform: rotate(45deg);
-    position: absolute;
-    top: max(
-        calc(var(--normal-width) * -0.18),
-        calc(var(--max-width) * -0.36)
-    );
+    aspect-ratio: 63/50;
+
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transition: 500ms;
 }
 
-#send-mail {
-    font-size: 2rem;
-    height: 4rem;
-    position: absolute;
-    top: -2rem;
-    display: flex;
-    align-items: center;
+.game-cell:hover {
+    background-size: 80%, 120%;
 }
 
-/* LINKS */
+.game-cell > .content {
+    color: var(--alt-text-color);
+    text-shadow: black 0 2px 10px;
+    backdrop-filter: brightness(20%) contrast(80%);
+    -webkit-backdrop-filter: brightness(20%) contrast(80%);
+    border-radius: var(--border-radius) var(--border-radius) var(--border-radius) var(--border-radius);
+
+    pointer-events: none;
+    padding: 1rem;
+    z-index: 6;
+
+    margin: 0 var(--side-padding);
+    height: fit-content;
+    position: absolute;
+    top: 1rem;
+    left: 0;
+
+    opacity: 0;
+    transition: 400ms;
+}
+
+.game-cell:hover > .content {
+    top: 0;
+    opacity: 1;
+}
+.game-cell .content p {
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 1.2em;
+}
+
+.game-cell .content h2 {
+    margin: 0.5rem 0 1rem 0;
+}
+
+#totem-breakout {
+    background-image: url(images/totem_title.png), url(images/totem_bg.png);
+    background-position: center, 50% 80%;
+}
+
+#gear-loop {
+    background-image: url(images/gear_title.png), url(images/gear_bg.png);
+    background-position: center, 100% 25%;
+}
+
+#le-fish {
+    background-image: url(images/fish_title.png), url(images/fish_bg.png);
+    background-position: 75% 20%, 20% 20%;
+}
+
+#sub-zero {
+    background-image: url(images/sub_zero_title.png), url(images/sub_zero_bg.png);
+    background-position: 25% 20%, center;
+}
+
+/* #endregion */
+
+/* #region PROJECTS */
+
+.project {
+    border: var(--border-thickness) solid var(--text-color);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin: 2rem 0;
+}
+
+/* #endregion */
+
+/* #region LINKS */
 
 a:hover {
     color: var(--link-color);
 }
 
 .link-button {
-    z-index: 10;
+    z-index: 2;
     height: fit-content;
     background-color: var(--body-color);
     color: var(--text-color);
@@ -239,4 +283,44 @@ a:hover {
     color: var(--link-color);
     border: var(--border-thickness) solid var(--link-color);
     box-shadow: 0 0.25rem var(--link-color);
+}
+
+/* #endregion */
+
+@media screen and (min-width: 155rem)
+{
+    .games-grid {
+        grid-template-columns: repeat(8, 1fr);
+    }
+}
+
+@media screen and (max-width: 70rem)
+{
+    header {
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+    }
+
+    header * {
+        margin: 0.5rem 0 !important;
+        text-align: center;
+    }
+
+    header > .shortcuts a {
+        font-size: 1.2rem;
+        margin: 0.2rem !important;
+        line-height: 3rem;
+    }
+
+    .games-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 45rem)
+{
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
