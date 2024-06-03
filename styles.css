@@ -71,12 +71,6 @@ p {
     font-size: 1rem;
 }
 
-.big {
-    font-weight: bolder;
-    font-size: 2.2em;
-    line-height: 1em;
-}
-
 .jam {
     color: var(--body-color);
     font-size: 0.8em;
@@ -321,7 +315,7 @@ a:hover {
     }
 }
 
-@media screen and (max-width: 70rem)
+@media screen and (max-width: 80rem)
 {
     header {
         flex-direction: column;
