@@ -146,9 +146,9 @@ main a:focus {
         gap: 1rem;
     }
 
-    aside #main-picture {
-        height: 11rem;
-        width: 11rem;
+    aside #aside-picture {
+        height: 7rem;
+        width: 7rem;
     }
 
     aside nav {
