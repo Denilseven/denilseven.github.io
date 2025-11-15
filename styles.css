@@ -36,7 +36,9 @@
 	--hover-in-transition-speed: 400ms;
 	--hover-out-transition-speed: 300ms;
 
-	--content-width: min(45rem, 100%);
+	--content-width: min(45rem, 95%);
+	--border-pixel: 3px;
+	--game-3d-color: purple;
 }
 
 body {
@@ -44,7 +46,6 @@ body {
 	color: var(--text-color);
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 	overflow-x: hidden;
-	/* font-size: 1.1em; */
 }
 
 header {
@@ -55,6 +56,15 @@ header {
 	background-size: auto 50%;
 	background-repeat: repeat-x; */
 	padding: 1rem 0;
+}
+
+p {
+	font-size: 1.1rem;
+	margin-bottom: 0.75rem;
+}
+
+p:last-child {
+	margin-bottom: 0;
 }
 
 .speech-bubble {
@@ -79,7 +89,7 @@ header {
 main {
 	position: relative;
 	width: var(--content-width);
-	margin: auto;
+	margin: 1rem auto;
 }
 
 section h1 {
@@ -87,19 +97,20 @@ section h1 {
 	width: fit-content;
 	background-color: black;
 	box-shadow: 0 0 0.5rem 0.5rem black;
+	position: relative;
 }
 
 section h1::before {
 	content: "---";
-	width: 100%;
+	width: 300%;
 	height: 0.2rem;
 	background: linear-gradient(90deg, var(--transparent), white, var(--transparent));
 	color: var(--transparent);
 	pointer-events: none;
 	position: absolute;
 	z-index: -1;
-	top: 0.7em;
-	left: 0;
+	top: 0.75em;
+	left: -100%;
 }
 
 .game-shelf {
@@ -114,7 +125,6 @@ section h1::before {
 }
 
 .game {
-	--box-shadow-color: purple;
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -122,15 +132,16 @@ section h1::before {
 	transform: rotateX(-15deg) rotateY(10deg) scale(0.85);
 	transition: var(--hover-out-transition-speed);
 	overflow: hidden;
+	border-radius: var(--border-pixel);
 	box-shadow:
-		-0.50rem -0.50rem var(--box-shadow-color),
-		-0.38rem -0.38rem var(--box-shadow-color),
-		-0.25rem -0.25rem var(--box-shadow-color),
-		-0.12rem -0.12rem var(--box-shadow-color);
+		-0.50rem -0.50rem var(--game-3d-color),
+		-0.38rem -0.38rem var(--game-3d-color),
+		-0.25rem -0.25rem var(--game-3d-color),
+		-0.12rem -0.12rem var(--game-3d-color);
 }
 
 .game::after {
-	content: "a";
+	content: "-";
 	position: absolute;
 	top: -25%;
 	width: 100%;
