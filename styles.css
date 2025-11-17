@@ -36,15 +36,14 @@
 	--hover-in-transition-speed: 400ms;
 	--hover-out-transition-speed: 300ms;
 
-	--content-width: min(45rem, 95%);
 	--border-pixel: 3px;
+	--content-width: min(45rem, 95%);
 	--game-3d-color: rgba(0, 0, 0, 0.5);
 	--perspective-distance: 800px;
 }
 
 body {
-	background-color: var(--nice-yellow);
-	/* color: var(--text-color); */
+	background-color: white;
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 	overflow-x: hidden;
 }
@@ -68,37 +67,15 @@ p:last-child {
 	margin-bottom: 0;
 }
 
-.speech-bubble {
-	color: var(--text-color);
-	background-image: url("assets/speech-bubble.png");
-	background-size: 100% 100%;
-	aspect-ratio: 3/2;
-	width: fit-content;
-	padding: 1rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	margin: auto;
-}
-
-.speech-bubble > * {
-	background-color: black;
-	padding: 0.5rem 1rem;
-	border-radius: 5rem;
-}
-
 main {
-	position: relative;
-	width: var(--content-width);
 	margin: 1rem auto;
+	width: var(--content-width);
 }
 
 section h1 {
+	border-bottom: 0.2rem dotted currentColor;
 	margin: 1rem auto;
 	width: fit-content;
-	position: relative;
-	border-bottom: 0.2rem dotted currentColor;
 }
 
 section {
@@ -107,8 +84,8 @@ section {
 
 .game-shelf {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	gap: 1rem;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .game-shelf h2 {
@@ -117,37 +94,37 @@ section {
 }
 
 .game-cover {
-	width: 100%;
 	height: 100%;
+	width: 100%;
 }
 
 .game {
-	position: relative;
-	display: flex;
 	align-items: center;
-	justify-content: center;
-	transition: var(--hover-out-transition-speed);
-	overflow: hidden;
 	border-radius: var(--border-pixel);
-	transform: perspective(var(--perspective-distance)) rotate3d(1, 0, 0, 10deg) scale(0.9);
 	box-shadow: 0 0.25rem 0.5rem var(--game-3d-color);
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
+	position: relative;
+	transform: perspective(var(--perspective-distance)) rotate3d(1, 0, 0, 10deg) scale(0.9);
+	transition: var(--hover-out-transition-speed);
 }
 
 .game:hover {
-	transform: none;
 	box-shadow: 0 0 0.5rem var(--game-3d-color);
+	transform: none;
 	transition: var(--hover-in-transition-speed);
 }
 
 .game::after {
+	background: linear-gradient(var(--transparent) 35%, white, var(--transparent) 75%);
 	content: "-";
+	height: 100%;
+	opacity: 0.4;
 	position: absolute;
 	top: -25%;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(var(--transparent) 35%, white, var(--transparent) 75%);
-	opacity: 0.4;
 	transition: top var(--hover-out-transition-speed);
+	width: 100%;
 }
 
 .game:hover::after {
