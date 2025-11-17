@@ -1,61 +1,24 @@
-/* * {
-	margin: 0;
-	padding: 0;
-	--border: 5px;
-	--text-color: black;
-	--aside-bg-color: #ffc21c;
-	--aside-link-color: orange;
-	--main-link-color: green;
-	--bg-color: #e7e7e7;
-	--nest-bg-color: lightgray;
-}
-
-@media (prefers-color-scheme: dark) {
-	* {
-		--text-color: white;
-		--aside-bg-color: #B58B00;
-		--aside-link-color: #DBA800;
-		--main-link-color: var(--aside-link-color);
-		--bg-color: #171717;
-		--nest-bg-color: #202020;
-	}
-} */
+/* @media (prefers-color-scheme: dark) { } */
 
 * {
 	margin: 0;
 	padding: 0;
-	--text-color: white;
-	--aside-bg-color: #B58B00;
-	--aside-link-color: #DBA800;
 	--nice-yellow: #ffe762;
-	--main-link-color: var(--aside-link-color);
-	--bg-color: #171717;
-	--nest-bg-color: #202020;
-
 	--transparent: rgba(0, 0, 0, 0);
-	--hover-in-transition-speed: 400ms;
-	--hover-out-transition-speed: 300ms;
 
 	--border-pixel: 3px;
 	--content-width: min(45rem, 95%);
 	--game-3d-color: rgba(0, 0, 0, 0.5);
 	--perspective-distance: 800px;
+
+	--hover-in-transition-speed: 400ms;
+	--hover-out-transition-speed: 300ms;
 }
 
 body {
-	background-color: white;
+	background-color: var(--nice-yellow);
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 	overflow-x: hidden;
-}
-
-header {
-	position: relative;
-	/* background-color: var(--nice-yellow); */
-	/* background-image: url("assets/pattern-bg.png");
-	background-position: 50%;
-	background-size: auto 50%;
-	background-repeat: repeat-x; */
-	padding: 1rem 0;
 }
 
 p {
@@ -68,7 +31,12 @@ p:last-child {
 }
 
 main {
-	margin: 1rem auto;
+	background-color: inherit;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 auto;
+	min-height: 100vh;
 	width: var(--content-width);
 }
 
@@ -85,7 +53,7 @@ section {
 .game-shelf {
 	display: grid;
 	gap: 1rem;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
 }
 
 .game-shelf h2 {
@@ -118,6 +86,7 @@ section {
 
 .game::after {
 	background: linear-gradient(var(--transparent) 35%, white, var(--transparent) 75%);
+	color: var(--transparent);
 	content: "-";
 	height: 100%;
 	opacity: 0.4;
@@ -130,4 +99,33 @@ section {
 .game:hover::after {
 	top: -50%;
 	transform: top var(--hover-in-transition-speed);
+}
+
+#decoration {
+	background-image: url("assets/pattern-bg.png");
+	background-repeat: repeat-y;
+	background-size: contain;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 10vw;
+	z-index: -7;
+}
+
+@media only screen and (max-width: 50rem) {
+	#decoration {
+		display: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	* {
+		--hover-in-transition-speed: 0;
+		--hover-out-transition-speed: 0;
+	}
+
+	.game {
+		transform: none;
+	}
 }
