@@ -38,19 +38,20 @@
 
 	--content-width: min(45rem, 95%);
 	--border-pixel: 3px;
-	--game-3d-color: purple;
+	--game-3d-color: rgba(0, 0, 0, 0.5);
+	--perspective-distance: 800px;
 }
 
 body {
-	background-color: black;
-	color: var(--text-color);
+	background-color: var(--nice-yellow);
+	/* color: var(--text-color); */
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 	overflow-x: hidden;
 }
 
 header {
 	position: relative;
-	background-color: var(--nice-yellow);
+	/* background-color: var(--nice-yellow); */
 	/* background-image: url("assets/pattern-bg.png");
 	background-position: 50%;
 	background-size: auto 50%;
@@ -68,6 +69,7 @@ p:last-child {
 }
 
 .speech-bubble {
+	color: var(--text-color);
 	background-image: url("assets/speech-bubble.png");
 	background-size: 100% 100%;
 	aspect-ratio: 3/2;
@@ -95,22 +97,12 @@ main {
 section h1 {
 	margin: 1rem auto;
 	width: fit-content;
-	background-color: black;
-	box-shadow: 0 0 0.5rem 0.5rem black;
 	position: relative;
+	border-bottom: 0.2rem dotted currentColor;
 }
 
-section h1::before {
-	content: "---";
-	width: 300%;
-	height: 0.2rem;
-	background: linear-gradient(90deg, var(--transparent), white, var(--transparent));
-	color: var(--transparent);
-	pointer-events: none;
-	position: absolute;
-	z-index: -1;
-	top: 0.75em;
-	left: -100%;
+section {
+	position: relative;
 }
 
 .game-shelf {
@@ -124,20 +116,27 @@ section h1::before {
 	position: absolute;
 }
 
+.game-cover {
+	width: 100%;
+	height: 100%;
+}
+
 .game {
 	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	transform: rotateX(-15deg) rotateY(10deg) scale(0.85);
 	transition: var(--hover-out-transition-speed);
 	overflow: hidden;
 	border-radius: var(--border-pixel);
-	box-shadow:
-		-0.50rem -0.50rem var(--game-3d-color),
-		-0.38rem -0.38rem var(--game-3d-color),
-		-0.25rem -0.25rem var(--game-3d-color),
-		-0.12rem -0.12rem var(--game-3d-color);
+	transform: perspective(var(--perspective-distance)) rotate3d(1, 0, 0, 10deg) scale(0.9);
+	box-shadow: 0 0.25rem 0.5rem var(--game-3d-color);
+}
+
+.game:hover {
+	transform: none;
+	box-shadow: 0 0 0.5rem var(--game-3d-color);
+	transition: var(--hover-in-transition-speed);
 }
 
 .game::after {
@@ -154,15 +153,4 @@ section h1::before {
 .game:hover::after {
 	top: -50%;
 	transform: top var(--hover-in-transition-speed);
-}
-
-.game-cover {
-	width: 100%;
-	height: 100%;
-}
-
-.game:hover {
-	transform: none;
-	box-shadow: none;
-	transition: var(--hover-in-transition-speed);
 }
