@@ -56,7 +56,8 @@ header {
 	transition: var(--hover-out-transition-speed);
 }
 
-#links li:hover img {
+#links a:hover img,
+#links a:focus img {
 	transform: none;
 	transition: var(--hover-in-transition-speed);
 }
@@ -110,7 +111,8 @@ section {
 	transition: var(--hover-out-transition-speed);
 }
 
-.game:hover {
+.game:hover,
+.game:focus {
 	box-shadow: 0 0 0.5rem var(--game-3d-color);
 	transform: none;
 	transition: var(--hover-in-transition-speed);
@@ -128,7 +130,8 @@ section {
 	width: 100%;
 }
 
-.game:hover::after {
+.game:hover::after,
+.game:focus::after {
 	top: -50%;
 	transform: top var(--hover-in-transition-speed);
 }
